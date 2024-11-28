@@ -5,6 +5,7 @@ using OnlineTrainingPlatform.Models;
 
 //stores all instructors on the platform
 List<InstructorModel> AllInstructors = new List<InstructorModel>();
+List<StudentModel> AllStudents = new List<StudentModel>();
 
 //show menu options until key is pressed
 string key;
@@ -21,6 +22,12 @@ do
         case "2":
             DisplayInstructors();
             break;
+        case "3":
+            AddStudent();
+            break;
+        case "4":
+            DisplayStudents();
+            break;
     }
 
 } while (key != "20");
@@ -29,6 +36,8 @@ void MenuOptions()
     Console.WriteLine("Menu Options");
     Console.WriteLine("1: Add an Instructor to the Online Training Platform");
     Console.WriteLine("2: Display all Instructors on the platform");
+    Console.WriteLine("3. Add a Student to the Online Training Platform");
+    Console.WriteLine("4: Display all Students on the platform");
 }
 
 void AddInstructor()
@@ -51,10 +60,44 @@ void AddInstructor()
 
 void DisplayInstructors()
 {
-    Console.WriteLine("Displaying the instructors on the Online Training Platform");
-    //read from list of instructors
-    foreach (InstructorModel instructor in AllInstructors)
-        Console.WriteLine(instructor);
+    if (AllInstructors.Count > 0)
+    {
+        Console.WriteLine("Displaying the instructors on the Online Training Platform");
+        //read from list of instructors
+        foreach (InstructorModel instructor in AllInstructors)
+            Console.WriteLine(instructor);
+    }
+    else Console.WriteLine("There are no instructors on the platform");
+}
+
+void AddStudent()
+{
+    string? firstName, lastName;
+    DateTime dateofBirth;
+
+    Console.WriteLine("\n Please enter the details of the Student");
+    Console.WriteLine($"Student's first name");
+    firstName = Console.ReadLine();
+    Console.WriteLine($"Students's last name");
+    lastName = Console.ReadLine();
+    Console.WriteLine("Date of Birth - Format (MM/DD/YYYY)");
+    dateofBirth = DateTime.Parse(Console.ReadLine());
+
+    //add details of new instructor through its contructor
+    AllStudents.Add(new StudentModel(firstName, lastName, dateofBirth));
+    Console.WriteLine("Student added to the platorm");
+}
+
+void DisplayStudents()
+{
+    if (AllStudents.Count > 0)
+    {
+        Console.WriteLine("Displaying the students on the Online Training Platform");
+        //read from list of instructors
+        foreach (StudentModel student in AllStudents)
+            Console.WriteLine(student);
+    }
+    else Console.WriteLine("There are no students currently enrolled on the platform");
 }
 
 //Testing code
