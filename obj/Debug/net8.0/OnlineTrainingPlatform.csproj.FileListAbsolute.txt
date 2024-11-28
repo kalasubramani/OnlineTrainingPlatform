@@ -1,0 +1,14 @@
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\OnlineTrainingPlatform.exe
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\OnlineTrainingPlatform.deps.json
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\OnlineTrainingPlatform.runtimeconfig.json
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\OnlineTrainingPlatform.dll
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\OnlineTrainingPlatform.pdb
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.AssemblyInfoInputs.cache
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.AssemblyInfo.cs
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.csproj.CoreCompileInputs.cache
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.dll
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\refint\OnlineTrainingPlatform.dll
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.pdb
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.genruntimeconfig.cache
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\ref\OnlineTrainingPlatform.dll
