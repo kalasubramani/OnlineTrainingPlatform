@@ -11,4 +11,14 @@ InstructorModel instructor = new InstructorModel("Maggie", "Harrington", DateTim
 Console.WriteLine(instructor);
 
 CourseModel course = new CourseModel("Programming in C#");
+ChapterModel[] chapterModels = new ChapterModel[]
+{
+    new ChapterModel("Introduction",ContentType.Video,75),
+    new ChapterModel("What is C#",ContentType.Text,25)
+};
+
+foreach(ChapterModel chapter in chapterModels)
+    course.AddChapter(chapter);
+
 Console.WriteLine(course);
+

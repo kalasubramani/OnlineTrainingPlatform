@@ -21,8 +21,28 @@ namespace OnlineTrainingPlatform.Models
             _id++;
         }
 
-        public override string ToString() => $"Course ID {_courseID} Course Name {_courseName}\n";
-        //public string? CourseName { get; set; }
-        //public string? CourseID { get; set; }
+        public override string ToString()
+        {
+            StringBuilder courseDetails = new StringBuilder();
+            courseDetails.AppendLine($"Course ID {_courseID} Course Name {_courseName}");
+            //check if chapters exists
+            if (_chapters.Count > 0) {
+                courseDetails.AppendLine("This is the list of chapters");
+                courseDetails.AppendLine("=============================");
+                foreach (ChapterModel chapter in _chapters) { 
+                    courseDetails.AppendLine(chapter.ToString());
+                }
+            }
+            else courseDetails.AppendLine("There are no chapters in the course");
+
+            return courseDetails.ToString();
+        }
+   
+
+        //to add chapters to list
+        public void AddChapter(ChapterModel chapter)
+        {
+            _chapters.Add(chapter);
+        }
        }
 }

@@ -32,5 +32,7 @@ namespace OnlineTrainingPlatform.Models
             _chapterduration.minutes= duration%60;
         }
 
+        public override string ToString() => $"Chapter Name {_chaptername} Content Type {_contentType} " +
+                                             $"Chapter Duration {_chapterduration.hours}h {_chapterduration.minutes}mins ";
     }
 }
