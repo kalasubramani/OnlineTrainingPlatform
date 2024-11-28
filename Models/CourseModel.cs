@@ -12,19 +12,20 @@ namespace OnlineTrainingPlatform.Models
     {
         private static int _id = 100;
         private string _courseID = $"C{_id}";
-        private string? _courseName;
+        private string? _courseName,_instructorID;
         private List<ChapterModel> _chapters = new List<ChapterModel>();
 
-        public CourseModel(string? courseName)
+        public CourseModel(string? courseName,string? instructorID)
         {
             _courseName = courseName;
+            _instructorID = instructorID;
             _id++;
         }
 
         public override string ToString()
         {
             StringBuilder courseDetails = new StringBuilder();
-            courseDetails.AppendLine($"Course ID {_courseID} Course Name {_courseName}");
+            courseDetails.AppendLine($"Course ID {_courseID} Course Name {_courseName} Instructior ID {_instructorID} ");
             //check if chapters exists
             if (_chapters.Count > 0) {
                 courseDetails.AppendLine("This is the list of chapters");

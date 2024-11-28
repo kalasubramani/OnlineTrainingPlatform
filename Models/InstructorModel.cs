@@ -19,6 +19,7 @@ namespace OnlineTrainingPlatform.Models
             _id++;
         }
 
+        public string getInstructorID() => _instructorID;
         public override string ToString() => $"Instructor ID {_instructorID} Name {FirstName} {LastName} " +
                                              $"Instructor Rating  {InstructorRating} Total No. of Students {TotalNoOfStudents}\n";
     }

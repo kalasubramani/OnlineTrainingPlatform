@@ -10,7 +10,7 @@ StudentModel student = new StudentModel("Mark","Brown",DateTime.Parse("10/20/199
 InstructorModel instructor = new InstructorModel("Maggie", "Harrington", DateTime.Parse("09/20/1979"));
 Console.WriteLine(instructor);
 
-CourseModel course = new CourseModel("Programming in C#");
+CourseModel course = new CourseModel("Programming in C#",instructor.getInstructorID());
 ChapterModel[] chapterModels = new ChapterModel[]
 {
     new ChapterModel("Introduction",ContentType.Video,75),
