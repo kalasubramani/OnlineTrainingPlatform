@@ -42,6 +42,8 @@ namespace OnlineTrainingPlatform.Models
         //to add chapters to list
         public void AddChapter(ChapterModel chapter)
         {
+            //get chapter ID and then add chapters
+            chapter._chapterid = _chapters.Count + 1;
             _chapters.Add(chapter);
         }
        }

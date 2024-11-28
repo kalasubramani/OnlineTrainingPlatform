@@ -19,7 +19,7 @@ namespace OnlineTrainingPlatform.Models
     }
     internal class ChapterModel
     {
-        private int _chapterid;
+        public int _chapterid; //to be used in course model
         private string? _chaptername;  
         private ContentType _contentType;
         private ChapterDuration _chapterduration;
@@ -32,7 +32,7 @@ namespace OnlineTrainingPlatform.Models
             _chapterduration.minutes= duration%60;
         }
 
-        public override string ToString() => $"Chapter Name {_chaptername} Content Type {_contentType} " +
+        public override string ToString() => $"Chapter ID {_chapterid} Chapter Name {_chaptername} Content Type {_contentType} " +
                                              $"Chapter Duration {_chapterduration.hours}h {_chapterduration.minutes}mins ";
     }
 }
