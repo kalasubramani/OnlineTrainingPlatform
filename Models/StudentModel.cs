@@ -18,6 +18,8 @@ namespace OnlineTrainingPlatform.Models
             _id++;//auto generate ID for each instance
         }
 
+        public string GetStudentId() => _studentID;
+
         public override string ToString() => $" Student ID {_studentID} First Name {FirstName} Last Name {LastName} Age {Age}\n";
 
     }

@@ -14,6 +14,7 @@ namespace OnlineTrainingPlatform.Models
         private string _courseID = $"C{_id}";
         private string? _courseName,_instructorID;
         private List<ChapterModel> _chapters = new List<ChapterModel>();
+        private List<string> _studentIDs = new List<string>();//associate student to a course
 
         public CourseModel(string? courseName,string? instructorID)
         {
@@ -36,6 +37,12 @@ namespace OnlineTrainingPlatform.Models
             }
             else courseDetails.AppendLine("There are no chapters in the course");
 
+            //Adding details for the no of students enrolled in the course
+            if (_studentIDs.Count > 0)
+                courseDetails.Append($"There are {_studentIDs.Count} students enrolled in this course");
+            else courseDetails.AppendLine("There are no students enrolled in this course");
+
+
             return courseDetails.ToString();
         }
    
@@ -46,6 +53,12 @@ namespace OnlineTrainingPlatform.Models
             //get chapter ID and then add chapters
             chapter._chapterid = _chapters.Count + 1;
             _chapters.Add(chapter);
+        }
+
+        //associate student and course through studentID
+        public void AddStudent(StudentModel student)
+        {
+            _studentIDs.Add(student.GetStudentId());
         }
        }
 }

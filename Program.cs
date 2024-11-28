@@ -20,5 +20,7 @@ ChapterModel[] chapterModels = new ChapterModel[]
 foreach(ChapterModel chapter in chapterModels)
     course.AddChapter(chapter);
 
+//course.AddStudent(student);
+
 Console.WriteLine(course);
 
