@@ -6,6 +6,7 @@ using OnlineTrainingPlatform.Models;
 //stores all instructors on the platform
 List<InstructorModel> AllInstructors = new List<InstructorModel>();
 List<StudentModel> AllStudents = new List<StudentModel>();
+List<CourseModel> AllCourses = new List<CourseModel>();
 
 //show menu options until key is pressed
 string key;
@@ -28,6 +29,12 @@ do
         case "4":
             DisplayStudents();
             break;
+        case "5":
+            AddCourse();
+            break;
+        case "6":
+            DisplayCourse();
+            break;
     }
 
 } while (key != "20");
@@ -38,6 +45,8 @@ void MenuOptions()
     Console.WriteLine("2: Display all Instructors on the platform");
     Console.WriteLine("3. Add a Student to the Online Training Platform");
     Console.WriteLine("4: Display all Students on the platform");
+    Console.WriteLine("5. Add a course to the Online Training Platform");
+    Console.WriteLine("6. Display all the courses available on the platform");
 }
 
 void AddInstructor()
@@ -98,6 +107,36 @@ void DisplayStudents()
             Console.WriteLine(student);
     }
     else Console.WriteLine("There are no students currently enrolled on the platform");
+}
+
+void AddCourse()
+{
+    string? courseName, InstructorID;
+    Console.WriteLine("\n Please enter the details of the Course");
+    Console.WriteLine("Please enter the course name");
+    courseName = Console.ReadLine();
+    Console.WriteLine("Please enter the instructor ID");
+    InstructorID = Console.ReadLine();
+
+    //check if the instructor is valid before associating it to the course
+    if (AllInstructors.Exists(instructor => instructor.getInstructorID() == InstructorID))
+    {
+        AllCourses.Add(new CourseModel(courseName, InstructorID));
+        Console.WriteLine("The course is added to the platform");
+    }
+    else Console.WriteLine("The instructor ID does not exist");
+}
+
+void DisplayCourse()
+{
+    if (AllCourses.Count > 0)
+    {
+        Console.WriteLine("Displaying the courses on the Online Training Platform");
+        //read from list of instructors
+        foreach (CourseModel course in AllCourses)
+            Console.WriteLine(course);
+    }
+    else Console.WriteLine("There are no courses available on the platform");
 }
 
 //Testing code
