@@ -12,8 +12,8 @@ namespace OnlineTrainingPlatform.Models
     {
         private static int _id = 100;
         private string _courseID = $"C{_id}";
-
         private string? _courseName;
+        private List<ChapterModel> _chapters = new List<ChapterModel>();
 
         public CourseModel(string? courseName)
         {
@@ -24,5 +24,5 @@ namespace OnlineTrainingPlatform.Models
         public override string ToString() => $"Course ID {_courseID} Course Name {_courseName}\n";
         //public string? CourseName { get; set; }
         //public string? CourseID { get; set; }
-    }
+       }
 }
