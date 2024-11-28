@@ -18,8 +18,9 @@ do
         case "1":
             AddInstructor();
             break;
-
-
+        case "2":
+            DisplayInstructors();
+            break;
     }
 
 } while (key != "20");
@@ -46,6 +47,14 @@ void AddInstructor()
     //add details of new instructor through its contructor
     AllInstructors.Add( new InstructorModel(firstName, lastName, dateofBirth));
     Console.WriteLine("Instructor added to the platorm");
+}
+
+void DisplayInstructors()
+{
+    Console.WriteLine("Displaying the instructors on the Online Training Platform");
+    //read from list of instructors
+    foreach (InstructorModel instructor in AllInstructors)
+        Console.WriteLine(instructor);
 }
 
 //Testing code
