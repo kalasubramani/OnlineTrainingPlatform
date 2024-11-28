@@ -23,6 +23,11 @@ namespace OnlineTrainingPlatform.Models
             _id++;
         }
 
+        public string CourseID
+        {
+            get { return _courseID; }
+         }
+
         public override string ToString()
         {
             StringBuilder courseDetails = new StringBuilder();

@@ -35,6 +35,9 @@ do
         case "6":
             DisplayCourse();
             break;
+        case "7":
+            AddChapterToCourse();
+            break;
     }
 
 } while (key != "20");
@@ -47,6 +50,7 @@ void MenuOptions()
     Console.WriteLine("4: Display all Students on the platform");
     Console.WriteLine("5. Add a course to the Online Training Platform");
     Console.WriteLine("6. Display all the courses available on the platform");
+    Console.WriteLine("7. Add a chapter to a course");
 }
 
 void AddInstructor()
@@ -137,6 +141,45 @@ void DisplayCourse()
             Console.WriteLine(course);
     }
     else Console.WriteLine("There are no courses available on the platform");
+}
+
+void AddChapterToCourse()
+{
+    string? courseID,chapterName;
+    ContentType contentType;
+    int duration;
+    Console.WriteLine("Add the details for the chapter \n Please enter the course ID");
+    
+    courseID=Console.ReadLine();
+
+    //check if the course exists
+    if (AllCourses.Exists(course => course.CourseID == courseID))
+    {
+        Console.WriteLine("Please enter the chapter name");
+        chapterName = Console.ReadLine();
+
+        Console.WriteLine("Please enter the content type - Audio, Video,Text");
+        try
+        {
+            contentType = Enum.Parse<ContentType>(Console.ReadLine());
+        }
+        catch (Exception e) {
+            Console.WriteLine("Content Type not found");
+            return;
+        }
+
+        Console.WriteLine("Please enter the duration in minutes");
+        duration = Int32.Parse(Console.ReadLine());
+
+        //for which course the chapter needs to be added
+        CourseModel? filteredCourse = AllCourses.Find(course => course.CourseID == courseID);
+        if (filteredCourse != null)
+            filteredCourse.AddChapter(new ChapterModel(chapterName, contentType, duration));
+        else
+            Console.WriteLine("The course does not exist");
+    }
+    else Console.WriteLine("The course does not exist");
+
 }
 
 //Testing code
