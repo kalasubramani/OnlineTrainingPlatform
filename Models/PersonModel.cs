@@ -15,12 +15,12 @@ namespace OnlineTrainingPlatform.Models
         protected DateTime DateOfBirth;
         protected int Age;
 
-        protected PersonModel(string? firstName,string? lastName,DateTime dataofBirth )
+        protected PersonModel(string? firstName,string? lastName,DateTime dateofBirth )
         {
             FirstName = firstName;
             LastName = lastName;
-            DateOfBirth = dataofBirth;
-            Age=DateTime.Now.Year - dataofBirth.Year;
+            DateOfBirth = dateofBirth;
+            Age=DateTime.Now.Year - dateofBirth.Year;
         }
 
     }

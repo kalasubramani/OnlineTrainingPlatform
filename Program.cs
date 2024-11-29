@@ -1,12 +1,18 @@
 ﻿
 
 using System.Security.Authentication;
+using System.Text.Json;
 using OnlineTrainingPlatform.Models;
+using OnlineTrainingPlatform.Services;
 
+const string _instructorFilePath = "data/instructors.json";
 //stores all instructors on the platform
 List<InstructorModel> AllInstructors = new List<InstructorModel>();
 List<StudentModel> AllStudents = new List<StudentModel>();
 List<CourseModel> AllCourses = new List<CourseModel>();
+
+//load data through persistance layer
+AllInstructors = JsonSerializer.Deserialize<List<InstructorModel>>( PersistenceLayer.LoadData(_instructorFilePath));
 
 //show menu options until key is pressed
 string key;
