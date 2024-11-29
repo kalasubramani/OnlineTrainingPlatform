@@ -6,6 +6,7 @@ using OnlineTrainingPlatform.Models;
 using OnlineTrainingPlatform.Services;
 
 const string _instructorFilePath = "data/instructors.json";
+const string _studentFilePath = "data/students.json";
 //stores all instructors on the platform
 List<InstructorModel> AllInstructors = new List<InstructorModel>();
 List<StudentModel> AllStudents = new List<StudentModel>();
@@ -13,6 +14,8 @@ List<CourseModel> AllCourses = new List<CourseModel>();
 
 //load data through persistance layer
 AllInstructors = JsonSerializer.Deserialize<List<InstructorModel>>( PersistenceLayer.LoadData(_instructorFilePath));
+
+AllStudents =  JsonSerializer.Deserialize<List<StudentModel>>(PersistenceLayer.LoadData(_studentFilePath));
 
 //show menu options until key is pressed
 string key;

@@ -46,9 +46,11 @@ namespace OnlineTrainingPlatform.Models
 
         public InstructorModel(string? firstName, string? lastName, DateTime dateofBirth) : base(firstName, lastName, dateofBirth)
         {
-            FirstName = firstName;
+            //must set the values for the properties that are overrided from the base class. These filed values have no other way to get a value
+            //if they are not mapped here
+            FirstName = firstName; 
             LastName = lastName;
-            dateofBirth = dateofBirth;
+            DateOfBirth = dateofBirth;
             _id++;
         }
 
