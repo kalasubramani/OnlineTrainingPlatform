@@ -50,6 +50,9 @@ do
         case "7":
             AddChapterToCourse();
             break;
+        case "8":
+            DisplayCoursesByInstructor();
+            break;
     }
 
 } while (key != "20");
@@ -63,6 +66,7 @@ void MenuOptions()
     Console.WriteLine("5. Add a course to the Online Training Platform");
     Console.WriteLine("6. Display all the courses available on the platform");
     Console.WriteLine("7. Add a chapter to a course");
+    Console.WriteLine("8. Displaying the courses by an instructor");
 }
 
 void AddInstructor()
@@ -194,13 +198,40 @@ void AddChapterToCourse()
 
         //for which course the chapter needs to be added
         CourseModel? filteredCourse = AllCourses.Find(course => course.CourseID == courseID);
-        if (filteredCourse != null)
+        if (filteredCourse != null) { 
             filteredCourse.AddChapter(new ChapterModel(chapterName, contentType, duration));
+            //add new chapters to json file
+            PersistenceLayer.AddData(_courseFilePath, AllCourses);
+        }
         else
             Console.WriteLine("The course does not exist");
     }
     else Console.WriteLine("The course does not exist");
 
+}
+
+void DisplayCoursesByInstructor()
+{
+    string? InstructorID; 
+    Console.WriteLine("Please enter the instructor ID");
+    InstructorID = Console.ReadLine();
+
+    //check if the instructor id exists
+    if (AllInstructors.Exists(instructor => instructor.InstructorID == InstructorID))
+    {
+
+        List<CourseModel> filteredCourses = AllCourses.FindAll(course => course.InstructorID == InstructorID);
+
+        //filter the course list for given instructor ID
+        if (filteredCourses.Count > 0)
+        {
+            foreach (CourseModel course in filteredCourses)
+                Console.WriteLine(course.CourseName);
+        }
+        else Console.WriteLine("There are no courses assigned for this instructor");
+    }
+    else Console.WriteLine("Instructor ID does not exists in the Online Training Platform");
+    
 }
 
 //Testing code
