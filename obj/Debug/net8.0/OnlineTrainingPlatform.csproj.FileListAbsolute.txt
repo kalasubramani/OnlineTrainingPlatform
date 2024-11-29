@@ -15,3 +15,4 @@ C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8
 C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\obj\Debug\net8.0\OnlineTrainingPlatform.sourcelink.json
 C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\Data\instructors.json
 C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\Data\students.json
+C:\Users\kalay\.net\OnlineTrainingPlatform\OnlineTrainingPlatform\bin\Debug\net8.0\Data\courses.json

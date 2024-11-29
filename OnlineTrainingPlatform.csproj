@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Update="Data\courses.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\instructors.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
