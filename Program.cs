@@ -1,5 +1,6 @@
 ﻿
 
+using System.Runtime.CompilerServices;
 using System.Security.Authentication;
 using System.Text.Json;
 using OnlineTrainingPlatform.Models;
@@ -12,6 +13,7 @@ const string _courseFilePath = "data/courses.json";
 List<InstructorModel> AllInstructors = new List<InstructorModel>();
 List<StudentModel> AllStudents = new List<StudentModel>();
 List<CourseModel> AllCourses = new List<CourseModel>();
+List<Purchase> AllPurchases = new List<Purchase>();
 
 //load data through persistance layer
 AllInstructors = JsonSerializer.Deserialize<List<InstructorModel>>( PersistenceLayer.LoadData(_instructorFilePath));
@@ -53,6 +55,15 @@ do
         case "8":
             DisplayCoursesByInstructor();
             break;
+        case "9":
+            SearchCourse();
+            break;
+        case "10":
+            PurchaseCourse();
+            break;
+        case "11":
+            DisplayAllPurchases();
+            break;
     }
 
 } while (key != "20");
@@ -67,6 +78,9 @@ void MenuOptions()
     Console.WriteLine("6. Display all the courses available on the platform");
     Console.WriteLine("7. Add a chapter to a course");
     Console.WriteLine("8. Displaying the courses by an instructor");
+    Console.WriteLine("9. Search for a course based on a topic");
+    Console.WriteLine("10. Purchase a course");
+    Console.WriteLine("11. Display all purchases");
 }
 
 void AddInstructor()
@@ -232,6 +246,62 @@ void DisplayCoursesByInstructor()
     }
     else Console.WriteLine("Instructor ID does not exists in the Online Training Platform");
     
+}
+
+void SearchCourse()
+{
+    string? topic;
+    Console.WriteLine("Please enter a topic to search for");
+    topic = Console.ReadLine();
+
+    //check the course list if there is a string match
+    List<CourseModel> filteredCourses = AllCourses.FindAll(course => course.CourseName.Contains(topic));
+
+    //display filtered courses
+    if(filteredCourses.Count > 0)
+    {
+        foreach (CourseModel course in filteredCourses)
+            Console.WriteLine(course);
+    }else Console.WriteLine("There are no courses available in the specified topic");
+
+}
+
+void PurchaseCourse()
+{
+    string? courseID, studentID;
+    decimal basePrice, discount;
+
+    Console.WriteLine("Enter the details of the purchase");
+    Console.WriteLine("Enter the Course ID");
+    courseID = Console.ReadLine();
+
+    Console.WriteLine("Enter the Student ID");
+    studentID = Console.ReadLine();
+
+    Console.WriteLine("What is the base price for the course?");
+    basePrice=Decimal.Parse(Console.ReadLine());
+
+    Console.WriteLine("Discount Offered?");
+    discount=Decimal.Parse(Console.ReadLine());
+
+
+    AllPurchases.Add(new Purchase(courseID, studentID,basePrice,discount));
+
+    //associate the student to the course purchased
+    CourseModel? filtedCourse = AllCourses.Find(course => (course.CourseID == courseID));
+    filtedCourse.AddStudent(studentID);
+
+    //find the instructor 
+    InstructorModel? filteredInstructor = AllInstructors.Find(instructor => instructor.InstructorID == filtedCourse.InstructorID);
+
+    //increment the no. of students for the instructor of the course
+    filteredInstructor.TotalNoOfStudents++;
+}
+
+void DisplayAllPurchases()
+{
+    foreach(Purchase purchase in AllPurchases)
+        Console.WriteLine(purchase);
 }
 
 //Testing code

@@ -18,7 +18,7 @@ namespace OnlineTrainingPlatform.Models
         private List<string> _studentIDs = new List<string>();//associate student to a course
         private double _rating;
 
-        public CourseModel()//need a default constructor to call base const
+        public CourseModel()//need a default constructor to call base const during deserialization
         {
             
         }
@@ -95,9 +95,9 @@ namespace OnlineTrainingPlatform.Models
         }
 
         //associate student and course through studentID
-        public void AddStudent(StudentModel student)
+        public void AddStudent(string? studentID)
         {
-            _studentIDs.Add(student.GetStudentId());
+            _studentIDs.Add(studentID);
         }
        }
 }
