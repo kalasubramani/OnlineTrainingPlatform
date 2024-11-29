@@ -1,18 +1,1 @@
-[
-    {
-        "instructorid": "I100",
-        "firstname": "Alan",
-        "lastname": "Rodrg",
-        "dateofbirth": "1988-07-26T00:00:00",
-        "totalnumberofstudents": 10,
-        "instructorrating": 4
-    },
-    {
-        "instructorid": "I101",
-        "firstname": "Sue",
-        "lastname": "Jacob",
-        "dateofbirth": "1990-09-26T00:00:00",
-        "totalnumberofstudents": 9,
-        "instructorrating": 3
-    } 
-]
+[{"instructorid":"I100","firstname":"Alan","lastname":"Rodrg","dateofbirth":"1988-07-26T00:00:00","totalnumberofstudents":10,"instructorrating":4},{"instructorid":"I101","firstname":"Sue","lastname":"Jacob","dateofbirth":"1990-09-26T00:00:00","totalnumberofstudents":9,"instructorrating":3},{"instructorid":"I102","firstname":"Ajay","lastname":"kk","dateofbirth":"1975-10-10T00:00:00","totalnumberofstudents":0,"instructorrating":0}]

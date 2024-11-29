@@ -81,6 +81,9 @@ void AddInstructor()
     //add details of new instructor through its contructor
     AllInstructors.Add( new InstructorModel(firstName, lastName, dateofBirth));
     Console.WriteLine("Instructor added to the platorm");
+
+    //persist all instructor data on <List> to instructor.json file
+    PersistenceLayer.AddData(_instructorFilePath, AllInstructors);
 }
 
 void DisplayInstructors()
@@ -111,6 +114,9 @@ void AddStudent()
     //add details of new instructor through its contructor
     AllStudents.Add(new StudentModel(firstName, lastName, dateofBirth));
     Console.WriteLine("Student added to the platorm");
+
+    //persist all instructor data on <List> to instructor.json file
+    PersistenceLayer.AddData(_studentFilePath, AllStudents);
 }
 
 void DisplayStudents()
@@ -141,6 +147,9 @@ void AddCourse()
         Console.WriteLine("The course is added to the platform");
     }
     else Console.WriteLine("The instructor ID does not exist");
+
+    //persist all instructor data on <List> to instructor.json file
+    PersistenceLayer.AddData(_courseFilePath, AllCourses);
 }
 
 void DisplayCourse()
